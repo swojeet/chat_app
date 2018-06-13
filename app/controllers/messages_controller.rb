@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.create(message_params)
 
     respond_to do |format|
-      format.j
+      format.js
     end
   end
 
