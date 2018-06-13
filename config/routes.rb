@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :conversations, only: [:create]
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+  end
 end
