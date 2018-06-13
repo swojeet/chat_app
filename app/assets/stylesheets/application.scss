@@ -21,3 +21,26 @@ ul {
   padding-left: 0px;
   list-style: none;
 }
+
+.messages-list {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.message-sent {
+  position: relative;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  margin: 5px 20px;
+  padding: 10px;
+  float: right;
+}
+
+.message-received {
+  background-color: #f1f0f0;
+  border-color: #eeeeee;
+  margin: 5px 20px;
+  padding: 10px;
+  float: left;
+}
