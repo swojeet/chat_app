@@ -1,7 +1,6 @@
-class ConversationsController < ApplicationRecord
+class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.get(current_user.id, params[:user_id])
-
     add_to_conversations unless conversated?
 
     respond_to do |format|
@@ -17,6 +16,6 @@ class ConversationsController < ApplicationRecord
   end
 
   def conversated?
-    session[:converstions].include?(@conversation.id)
+    session[:conversations].include?(@conversation.id)
   end
 end
