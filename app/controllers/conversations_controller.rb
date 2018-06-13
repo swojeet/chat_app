@@ -8,6 +8,16 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def close
+    @conversation = Conversation.find(params[:id])
+
+    session[:conversations].delete(@conversation.id)
+
+    respond_to do |format|
+      format.j
+    end
+  end
+
   private
 
   def add_to_conversations
