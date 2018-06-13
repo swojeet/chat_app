@@ -14,7 +14,7 @@ class ConversationsController < ApplicationController
     session[:conversations].delete(@conversation.id)
 
     respond_to do |format|
-      format.j
+      format.js
     end
   end
 
