@@ -24,20 +24,40 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
   connected: function() {},
   disconnected: function() {},
   received: function(data) {
-    console.log(data["message"]);
-    // alert("inside received");
     var conversation = $("#conversations-list").find(
-      "[data-conversation-id= '" + data["conversation_id"] + "']"
+      "[data-conversation-id='" + data["conversation_id"] + "']"
     );
+
+    console.log("data[conversation_id] : ");
+    console.log(data);
+
     conversation
       .find(".messages-list")
       .find("ul")
       .append(data["message"]);
 
+    console.log(data["message"]);
     var messages_list = conversation.find(".messages-list");
+    console.log(messages_list);
     var height = messages_list[0].scrollHeight;
     messages_list.scrollTop(height);
   },
+  // received: function(data) {
+  //   console.log(data["message"]);
+  //   // alert("inside received");
+  //   var conversation = $("#conversations-list").find(
+  //     "[data-conversation-id= '" + data["conversation_id"] + "']"
+  //   );
+  //   conversation
+  //     .find(".messages-list")
+  //     .find("ul")
+  //     .append(data["message"]);
+  //   var messages_list = conversation.find(".messages-list");
+  //   console.log("haha");
+  //   console.log(messages_list);
+  //   var height = messages_list[0].scrollHeight;
+  //   messages_list.scrollTop(height);
+  // },
   speak: function(message) {
     // alert("hi");
     return this.perform("speak", {
